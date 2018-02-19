@@ -1,0 +1,17 @@
+sudo: required
+dist: trusty
+language: generic
+services:
+- docker
+script:
+- "(cd tgtd && docker build . -t kubevirt/tgtd)"
+deploy:
+- provider: script
+  script: "(cd tgtd && deploy.sh)"
+  skip_cleanup: true
+  on:
+    branch: master
+env:
+  global:
+  - secure: sXJgeVewSAYctMAgBDflfGu3D6mhRE5EvYhe8wu+69sla/zWvSWEmfVAW4gCAjCwmaJPjfXKghiCVqq0fq4eMdLGYIzjL/8E0kc+d9qxtA3qE2qIkD+wtISgsVxL/hPtPw0/toXB2Tl4faNpdCMVCICqVRFMosjQOK/xJYpYn+kE3DmlX5/Hnnr4ABso+t/OxQLegxgJx/DrcyDY1UjpJmQAbcah2KaZGpEUUWOyHzIUY9LeC3aA+JJohTUE+gn499bdjsFbDpr+NmX4wcyzXq8CTHDNmcz0cBwlo6TifmtPBzSa/4Hyu2FESFR9L4O1pBL4B6K9s+5OSlP07HGJn5uOvI0D8CrXReb8Ma+ClUvQZTfG/qIn+/pLJGcxam6viX2f8nlswDRMI/FnDI9cf4C2iiwOyfbQ1UBfbV8gWf6P7DG5yxDIEr658UdRHFj/ATHqT7eSlesc1kDg8mvumcEKZks+D/cr71qwaZHMwYH2tDMupXR0xuGBRmZqRBfBI6f2UQcLfXE4D+KEMBrqH/fs7cAmnUIeu/ZJUpeL0t4HXSUoDx9ECXQ3Zwp5dZXnsLnM8Pi/C+1mbk13PZU2ZLnZdaMx9+6MC8eiiakb9+7VC2u6fnbC/bJ59Bje237EaeM1wm4u2ao72E/rFtoYFhuwTO23tKJJ/9Ych+1/WvA=
+  - secure: jy0eDQrAMjNIf/ZRvNhpmCocE9dRNN4KOlDcdgHumrX3eNyZKl4Nps0HpHF4eUjBCsB5Jf3Wzt7X1TQ7Fuzxp9egPgtZyglRt962OX/b9jq1QZZOdlDnv8G/FP7c42drnnICJf12DhOwzZPyEyG39+++RLmvlbyBA/ACi5wa6Wr/q5fjkFvM9o83i5YtU9fNBKoBTWyW8omilqMfy9WwrTg0oaACgsia9aGXoyshb2vJD0EgCofqPZRvqZO5IDX6AkZaIyuZKiaOyXnHnp8rhgNwygyOuNLnRvjesUTii27f6RMLQI9iPBh2hnY1YlEwMi0r7qxND4X37HChrjfH++UhLUfB2O++dfGj/B92czCN4O8iE4NZlCYuOlV8tebN8RgRLnGbunzeVlgIC5ibt0LUyY/VNsktzYncneTyAXzbFiKhG3zfU+/d+90bHfxW8Llzkk5Lp/KEWRoyJsNjr7Tpqsv8WIYCwyTDXF9DZNjZulnxsGfB0DvZklB1/ysWWyO7DExbteViq1FOQZwjn22o50ZMWVft/j3bPsxN0S5RN8zZFKo/8cm1NCu1kgFCyip1vla8wlSdIJTbTfnvHDKDXWvlD2jsjDNtRrjkj3Z40kklmP5BZP2uFfFRnyQEUTc5mdsjSST3+6QWNdoHpkhGk4FUyGbvzbAypxCcBIE=
