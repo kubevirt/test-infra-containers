@@ -7,7 +7,7 @@ script:
 - "(cd tgtd && docker build . -t kubevirt/tgtd)"
 deploy:
 - provider: script
-  script: "(cd tgtd && deploy.sh)"
+  script: "(cd tgtd && ./deploy.sh)"
   skip_cleanup: true
   on:
     branch: master
